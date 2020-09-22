@@ -24,6 +24,7 @@ public class Test : MonoBehaviour
         Boss lastboss = new Boss();
         lastboss.Attack();
         lastboss.Defence(3);
+        for (int Magic = 0; Magic < 10; Magic++)
         lastboss.Magic(5);
         lastboss.ougi(20);
     }
@@ -48,23 +49,22 @@ public class Boss
         this.hp -= damage;
     }
 
+
     public void Magic(int consumption)
     {
         int spare = this.mp -= consumption;
         Debug.Log("魔法攻撃をした。残りのMPは" + spare);
-
-        for(int mp = 0; mp < 10; mp++)
-        {
-            if(mp < 1)
+        if(spare < 5) 
             {
                 Debug.Log("MPが足りないため魔法が使えない。");
             }
-        }
+
     }
+
 
     public void ougi(int risk)
     {
-        Debug.Log(risk + "MPをけずり" + ultimate + "のダメージを与えた。");
+        Debug.Log(risk + "HPをけずり" + ultimate + "のダメージを与えた。");
         this.hp -= risk;
     }
 }
