@@ -24,7 +24,7 @@ public class Test : MonoBehaviour
         Boss lastboss = new Boss();
         lastboss.Attack();
         lastboss.Defence(3);
-        for (int Magic = 0; Magic < 10; Magic++)
+        for (int Magic = 0; Magic < 11; Magic++)
         lastboss.Magic(5);
         lastboss.ougi(20);
     }
@@ -53,11 +53,15 @@ public class Boss
     public void Magic(int consumption)
     {
         this.mp -= consumption;
-        Debug.Log("魔法攻撃をした。残りのMPは" + mp);
-        if(mp < 5) 
-            {
-                Debug.Log("MPが足りないため魔法が使えない。");
-            }
+        if (mp > 2)
+        {
+            Debug.Log("魔法攻撃をした。残りのMPは" + mp);
+        }
+
+        else
+        {
+            Debug.Log("MPが足りないため魔法が使えない。");
+        }
 
     }
 
