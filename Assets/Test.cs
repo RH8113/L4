@@ -52,9 +52,9 @@ public class Boss
 
     public void Magic(int consumption)
     {
-        this.mp -= consumption;
-        if (mp > 2)
+        if (this.mp >= consumption)
         {
+            this.mp -= consumption;
             Debug.Log("魔法攻撃をした。残りのMPは" + mp);
         }
 
